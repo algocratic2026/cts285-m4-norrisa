@@ -59,7 +59,7 @@ def test_eleventh_problem_is_refused():
     with pytest.raises(SetFull):
         bank.add_problem("P11")
     assert len(bank.members()) == 10
-
+a
 
 def test_curator_report_gives_label_and_attempts():
     store = MemoryStore()
