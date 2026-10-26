@@ -31,19 +31,32 @@ Why did no test need to change? TODO
 
 ## Part 4. The rule in the real library [S2]
 
-The same 10-problem rule exists in the real library. Write the file and the function name. TODO
+The same 10-problem rule exists in the real library. Write the file and the function name. 
+dataman/logic.py, add_problem()
+
 
 ## Part 5. The red test [S2]
+Break on purpose: I don't think any tests will fail.
+BUT: If we remove the "stop at 10" rule, then the Add11th test will fail.
+Actual:
+ def test_eleventh_problem_is_refused():
+        bank = MemoryBank(MemoryStore(), "set-1")
+        for i in range(1, 11):
+            bank.add_problem(f"P{i}")
+>       with pytest.raises(SetFull):
+             ^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'dataman.logic.SetFull'>
 
-With the rule removed from the library, what did the screen show? TODO
 
-With the rule removed, which test failed? TODO
+With the rule removed from the library, what did the screen show? It added 11 items
+
+With the rule removed, which test failed? test_eleventh_problem_is_refused()
 
 ## Part 6. The data swap [S2]
 
-A real database would replace which file? TODO
+A real database would replace which file? dataman_store.json
 
-Which file holds the rules and does not change when the database changes? TODO
+Which file holds the rules and does not change when the database changes? logic.py
 
 ## Reflection [S2]
 
